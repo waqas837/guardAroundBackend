@@ -82,7 +82,6 @@ const incidents = new Schema(
 );
 incidents.index({ location: "2dsphere" });
 
-
 // mongoose middleware are called automatically pre/post/and anyother...
 // var autoPopulateLead = function (next) {
 //   this.populate({ path: "like" });

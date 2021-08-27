@@ -79,7 +79,7 @@ exports.UpdateUser = asyncCatch(async (req, res) => {
   }
 });
 
-// 4.dummy purpose justCreateForNow
+// 4.add a new User by admin
 exports.addNewUser = asyncCatch(async (req, res) => {
   const data = await UserModel.create({
     phone: req.body.phone,
@@ -97,7 +97,7 @@ exports.addNewUser = asyncCatch(async (req, res) => {
     about: req.body.about,
     incidents: req.body.incidents,
     // status: "deleted",
-    // type: "admin",
+    type: "admin", //becuase this route is specified for admin
   });
   if (data) {
     res.json({ success: true, message: "data added successfully", data });

@@ -11,18 +11,19 @@ router.get("/", (req, res) => {
 //1.First admin login himself
 router.route("/AdminLogin").post(AdminUserController.AdminLogin);
 
-//2.These routes for the admin for take actions for users only
+// 2.These routes for the admin for take actions for users only
 router.route("/FetchAllUsers").get(Auth, AdminUserController.FetchAllUsers);
+// 3. delete a user
 router
   .route("/DeletSingleUser/:_id")
   .delete(Auth, AdminUserController.DeletSingleUser);
 router.route("/UpdateUser/:_id").patch(Auth, AdminUserController.UpdateUser);
-// 3.dummy data exported to the User List
+// 4.dummy data exported to the User List
 router.route("/addNewUser").post(Auth, AdminUserController.addNewUser);
-// 4.get dummy data
+// 5.get dummy data
 router.route("/getdummydata").get(Auth, AdminUserController.getdummydata);
 
-// 5.imageUploadForUsers
+// 6.imageUploadForUsers
 router
   .route("/imageUploadForUsers/:_id")
   .patch(
@@ -30,7 +31,7 @@ router
     imageUpload.single("image"),
     AdminUserController.imageUploadForUsers
   );
-//6. UpdateUserImageOnly
+//7. UpdateUserImageOnly
 router
   .route("/UpdateUserImageOnly/:_id")
   .patch(
